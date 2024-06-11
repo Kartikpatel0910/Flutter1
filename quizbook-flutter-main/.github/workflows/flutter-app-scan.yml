@@ -1,0 +1,74 @@
+name: Flutter CI
+
+on:
+  pull_request:
+    branches: [main]
+
+env:
+  flutter_version: "3.19.0"
+
+jobs:
+  code-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v1
+        with:
+          path: /opt/hostedtoolcache/flutter
+          key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.flutter_version }}
+          channel: "stable"
+      - run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # - name: Code Scanning
+      #   uses: github/codeql-action@v2
+      #   with:
+      #     languages: dart
+      #   continue-on-error: true
+
+      - name: Lint Check
+        run: flutter analyze
+        continue-on-error: true
+
+  build-apk:
+    needs: code-scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v1
+        with:
+          path: /opt/hostedtoolcache/flutter
+          key: ${{ runner.OS }}-flutter-install-cache-${{ env.flutter_version }}
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.flutter_version }}
+          channel: "stable"
+      - run: flutter --version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build Flutter App
+        run: flutter build apk
+
+      - name: Archive APK File
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: quizbook-apk
+          path: build/app/outputs/flutter-apk/app-release.apk

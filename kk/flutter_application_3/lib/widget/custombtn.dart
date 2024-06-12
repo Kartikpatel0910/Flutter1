@@ -208,7 +208,7 @@ class bsdt extends StatelessWidget {
     this.elevation,
     required this.onpressed,
     required this.closebtn,
-    required this.hight, 
+    required this.hight,
     required this.onback,
   });
 
@@ -305,12 +305,12 @@ class wrat extends StatelessWidget {
 }
 
 class stck extends StatelessWidget {
-  const stck({super.key,
-  
+  const stck({
+    super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold()
+    return Scaffold();
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: dead_code
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_3/widget/custombtn.dart';
 
@@ -12,6 +14,7 @@ class myApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Demo(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -27,45 +30,73 @@ class _DemoState extends State<Demo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // body: Column(
-        //   children: [
-        //     custom_btn(
-        //         tname: "Elevated Button",
-        //         tColor: Colors.white,
-        //         onPressed: () {
-        //           print('click elevated');
-        //         },
-        //         bgColor: Colors.black),
-        //     txtbtn(
-        //       btname: 'Text Button',
-        //       btColor: Colors.deepPurpleAccent,
-        //       onPressed: () {
-        //         print('click textbtn');
-        //       },
-        //     ),
-        //     outlbtn(
-        //         outlname: 'Outline Button',
-        //         otColor: Colors.blue,
-        //         onPressed: () {
-        //           print('click btn');
-        //         }),
-        //     iconbtn(
-        //         icons: Icons.star,
-        //         icColor: Colors.brown,
-        //         onPressed: () {
-        //           print('click icon button');
-        //         }),
-        //     ftbtn(
-        //         flotbtname: 'Flowting action Button',
-        //         otColor: Colors.brown,
-        //         onPressed: () {
-        //           print('click float btn');
-        //         }),
-        body: sliv(
-            title: 'SliverApp Bar',
-            pinned: true,
-            floating: true,
-            imageurl: 'https://images.pexels.com/photos/133081/pexels-photo-133081.jpeg?auto=compress&cs=tinysrgb&w=600',));
+        body:
+
+            // Column(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     custom_btn(
+            //         tname: "Elevated Button",
+            //         tColor: Colors.white,
+            //         onPressed: () {
+            //           print('click elevated');
+            //         },
+            //         bgColor: Colors.black),
+            //     txtbtn(
+            //       btname: 'Text Button',
+            //       btColor: Colors.deepPurpleAccent,
+            //       onPressed: () {
+            //         print('click textbtn');
+            //       },
+            //     ),
+            //     children: [
+            //   outlbtn(
+            //     outlname: 'Outline Button',
+            //     otColor: Colors.blue,
+            //     onPressed: () {
+            //       print('click btn');
+            //     },
+            //     width: 2,
+            //   ),
+            // ]
+            //     iconbtn(
+            //         icons: Icons.star,
+            //         icColor: Colors.brown,
+            //         onPressed: () {
+            //           print('click icon button');
+            //         }),
+            //     ftbtn(
+            //         flotbtname: 'Flowting action Button',
+            //         otColor: Colors.brown,
+            //         onPressed: () {
+            //           print('click float btn');
+            //         }),
+            //    sliv(
+            //   title: 'SliverApp Bar',
+            //   pinned: true,
+            //   floating: true,
+            //   imageurl:
+            //       'https://images.pexels.com/photos/133081/pexels-photo-133081.jpeg?auto=compress&cs=tinysrgb&w=600',
+            // ));
+            bsdt(
+      btnName: 'Button to show',
+      bgColor: Colors.blue,
+      onpressed: () {},
+      closebtn: 'close',
+      hight: 200,
+      onback: () {
+        Navigator.pop(context);
+      },
+    )
+
+        // wrat(
+        //     space: 10,
+        //     runspace: 10,
+        //     alignment: WrapAlignment.end,
+        //     direction: Axis.horizontal,
+        //     hight: 100,
+        //     width: 100,
+        //     color: Colors.blue)
+        );
   }
 }
-  

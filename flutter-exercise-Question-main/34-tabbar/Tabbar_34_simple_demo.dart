@@ -25,7 +25,6 @@ class Sdk extends StatefulWidget {
 }
 
 class _SdkState extends State<Sdk> {
-  bool isSwitched = false;
   @override
   Widget build(BuildContext context) => DefaultTabController(
       length: 4,

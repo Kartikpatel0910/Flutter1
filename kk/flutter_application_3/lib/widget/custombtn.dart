@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class custom_btn extends StatelessWidget {
   const custom_btn(
@@ -63,10 +64,12 @@ class outlbtn extends StatelessWidget {
       required this.outlname,
       required this.otColor,
       required this.onPressed,
-      this.bgColor = Colors.orange});
+      this.bgColor = Colors.orange,
+      required this.width});
   final String outlname;
   final Color otColor;
   final Color bgColor;
+  final double width;
   final VoidCallback onPressed;
 
   @override
@@ -76,11 +79,11 @@ class outlbtn extends StatelessWidget {
             child: OutlinedButton(
       child: Text(
         outlname,
-        style: TextStyle(color: otColor,),
+        style: TextStyle(
+          color: otColor,
+        ),
       ),
-      style: OutlinedButton.styleFrom(
-        side: BorderSide()
-      ),
+      style: OutlinedButton.styleFrom(side: BorderSide(width: width)),
       onPressed: () {
         onPressed();
       },
@@ -185,7 +188,10 @@ class sliv extends StatelessWidget {
             expandedHeight: expandhieght,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(title),
-              background: Image.network(imageurl,fit: BoxFit.cover,),
+              background: Image.network(
+                imageurl,
+                fit: BoxFit.cover,
+              ),
             ),
           )
         ],
@@ -194,20 +200,117 @@ class sliv extends StatelessWidget {
   }
 }
 
-
-class btmshit extends StatelessWidget {
-  const btmshit({super.key,
-  re this.btnName;
+class bsdt extends StatelessWidget {
+  const bsdt({
+    super.key,
+    required this.btnName,
+    required this.bgColor,
+    this.elevation,
+    required this.onpressed,
+    required this.closebtn,
+    required this.hight, 
+    required this.onback,
   });
 
-final btnName;
+  final btnName;
+  final elevation;
+  final Color bgColor;
+  final VoidCallback onpressed;
+  final VoidCallback onback;
+  final String closebtn;
+  final double hight;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ElevatedButton(onPressed: onPressed, child: child),
+        child: ElevatedButton(
+          onPressed: () {
+            onpressed();
+            {
+              showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return SizedBox(
+                      height: hight,
+                      child: Center(
+                        child: ElevatedButton(
+                            onPressed: () {
+                              onback();
+                            },
+                            child: Text(closebtn)),
+                      ),
+                    );
+                  });
+            }
+          },
+          child: Text(btnName),
+          style: ElevatedButton.styleFrom(side: BorderSide(color: bgColor)),
+        ),
       ),
-    )
+    );
+  }
+}
+
+class wrat extends StatelessWidget {
+  const wrat(
+      {super.key,
+      required this.space,
+      required this.runspace,
+      required this.alignment,
+      required this.direction,
+      required this.hight,
+      required this.width,
+      required this.color});
+
+  final double space;
+  final double runspace;
+  final alignment;
+  final direction;
+  final double hight;
+  final double width;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Wrap(
+        spacing: space,
+        runSpacing: runspace,
+        children: [
+          Container(
+            height: hight,
+            width: width,
+            color: color,
+          ),
+          Container(
+            height: hight,
+            width: width,
+            color: color,
+          ),
+          Container(
+            height: hight,
+            width: width,
+            color: color,
+          ),
+          Container(
+            height: hight,
+            width: width,
+            color: color,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class stck extends StatelessWidget {
+  const stck({super.key,
+  
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold()
   }
 }

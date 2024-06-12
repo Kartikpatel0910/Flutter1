@@ -28,14 +28,10 @@ class _SdkState extends State<Sdk> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Wrap Widgets Demo'),
+          title: Text('Sliver App'),
         ),
         body: Center(
             child: Wrap(
-          spacing: 10,
-          runSpacing: 20,
-          alignment: WrapAlignment.end,
-          direction: Axis.vertical,
           children: [
             Container(
               height: 100,

@@ -27,7 +27,7 @@ class _SdkState extends State<Sdk> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Snackbar"),
+        title: Text("Stack Demo"),
       ),
       body: Center(
         child: Column(

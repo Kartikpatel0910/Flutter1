@@ -28,7 +28,7 @@ class _SdkState extends State<Sdk> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Sliver App'),
+          title: Text('Wrap Widgets Demo'),
         ),
         body: Center(
             child: Wrap(

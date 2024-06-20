@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
-class custom_btn extends StatelessWidget {
-  const custom_btn(
+class Elevatedbtn extends StatelessWidget {
+  const Elevatedbtn(
       {super.key,
       required this.tname,
       required this.tColor,

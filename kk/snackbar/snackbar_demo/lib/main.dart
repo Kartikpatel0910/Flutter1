@@ -24,55 +24,52 @@ class Sdk extends StatefulWidget {
 }
 
 class _SdkState extends State<Sdk> {
+  String dropdownValue = 'one';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Wrap Widgets Demo'),
+          backgroundColor: Color.fromARGB(255, 233, 79, 58),
+          title: Text(
+            "TextForm Filed Demo",
+            style: TextStyle(
+              color: Colors.cyanAccent,
+            ),
+          ),
         ),
         body: Center(
-            child: Wrap(
-          spacing: 10,
-          runSpacing: 20,
-          alignment: WrapAlignment.end,
-          direction: Axis.vertical,
-          children: [
-            Container(
-              height: 100,
-              width: 100,
-              color: Colors.red,
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 50),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    
+                    Icon(
+                      Icons.person,
+                      color: Colors.red[700],
+                    ),
+                    SizedBox(
+                      width: 325.0,
+                      child: TextFormField(
+
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide
+                              ( color: 
+                              Colors.red)
+                              ), 
+                          hintText: 'Input Your UserName',
+                        ),
+                      ),
+                    ),
+                  ]
+                ),
+              ]
             ),
-            Container(
-              height: 100,
-              width: 100,
-              color: Colors.blue,
-            ),
-            Container(
-              height: 100,
-              width: 100,
-              color: Colors.brown,
-            ),
-            Container(
-              height: 100,
-              width: 100,
-              color: Colors.green,
-            ),
-            Container(
-              height: 100,
-              width: 100,
-              color: Colors.purple,
-            ),
-            Container(
-              height: 100,
-              width: 100,
-              color: Colors.black,
-            ),
-            Container(
-              height: 100,
-              width: 100,
-              color: Colors.yellow,
-            ),
-          ],
-        )));
+          ),
+      ),
+    );
   }
 }

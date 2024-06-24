@@ -29,7 +29,7 @@ class _SdkState extends State<Sdk> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Snackbar"),
+        title: Text("GridView Demo"),
       ),
       body: Center(
         child: Container(

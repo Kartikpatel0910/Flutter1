@@ -42,23 +42,16 @@ class _SdkState extends State<Sdk> {
             ),
           ),
         ),
-        body: GridView.count(
-            crossAxisCount: 2,
-            mainAxisSpacing: 10,
-            children: List.generate(20, (index) {
-              return Padding(
-                padding: EdgeInsets.all(10),
-                child: Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            'https://pixabay.com/images/search/garden/'),
-                        fit: BoxFit.cover,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                ),
-              );
-            }))
-        );
+        body: GridView.builder(
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 4,
+      crossAxisSpacing: 2.0,
+      mainAxisSpacing: 2.0,
+    ),
+    itemBuilder: (BuildContext context, int index) {
+      return Image.network(
+          "https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_640.jpg");
+    })
+   );
   }
 }

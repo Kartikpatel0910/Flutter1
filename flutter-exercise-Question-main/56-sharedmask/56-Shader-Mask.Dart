@@ -25,8 +25,7 @@ class drag extends StatefulWidget {
 }
 
 class _dragState extends State<drag> {
-  double left = 0.0;
-  double top = 0.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
